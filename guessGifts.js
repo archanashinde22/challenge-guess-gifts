@@ -24,4 +24,22 @@ const guessGifts = (wishlist, presents) => {
   }
   return console.log(guesspresents);
 };
+
+const guessGifts1 = (wishlist, presents) => {
+  const guessedGifts = [];
+  presents.forEach((present) => {
+    wishlist
+      .filter(
+        (wish) =>
+          wish.size === present.size &&
+          wish.clatters === present.clatters &&
+          wish.weight === present.weight
+      )
+      .forEach((match) => {
+        guessedGifts.push(match.name);
+      });
+  });
+  return guessedGifts;
+};
+
 guessGifts(wishlist, presents);
